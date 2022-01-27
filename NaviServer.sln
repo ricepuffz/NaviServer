@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NaviServer", "NaviServer\NaviServer.csproj", "{B5974ADA-8447-4149-AE63-44BF396712F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5974ADA-8447-4149-AE63-44BF396712F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5974ADA-8447-4149-AE63-44BF396712F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5974ADA-8447-4149-AE63-44BF396712F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5974ADA-8447-4149-AE63-44BF396712F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDB4A99D-19A8-4CE6-A2D2-503A6EE86BAA}
+	EndGlobalSection
+EndGlobal
