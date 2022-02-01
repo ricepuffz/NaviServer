@@ -11,6 +11,7 @@ namespace NaviServer.Models
     {
         public uint ShipId { get; set; }
         public uint CoordinatesId { get; set; }
+        public float Speed { get; set; }
 
         public virtual Coordinates Coordinates { get; set; }
         public virtual Movement Movement { get; set; }

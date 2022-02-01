@@ -209,6 +209,8 @@ namespace NaviServer.Data
 
                 entity.Property(e => e.ShipId).HasColumnName("ship_id");
 
+                entity.Property(e => e.Speed).HasColumnName("speed");
+
                 entity.Property(e => e.CoordinatesId).HasColumnName("coordinates_id");
 
                 entity.HasOne(d => d.Coordinates)
