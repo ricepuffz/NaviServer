@@ -7,13 +7,15 @@ using System.Collections.Generic;
 
 namespace NaviServer.Models
 {
-    public partial class Player
+    public partial class Movement
     {
-        public uint PlayerId { get; set; }
-        public ulong IsAdmin { get; set; }
+        public uint MovementId { get; set; }
         public uint ShipId { get; set; }
+        public uint CoordinatesFromId { get; set; }
+        public uint CoordinatesToId { get; set; }
 
+        public virtual Coordinates CoordinatesFrom { get; set; }
+        public virtual Coordinates CoordinatesTo { get; set; }
         public virtual Ship Ship { get; set; }
-        public virtual Credentials Credentials { get; set; }
     }
 }
