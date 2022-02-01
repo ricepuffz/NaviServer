@@ -7,8 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using NaviServer.Data;
-using NaviServer.Models;
+using NaviServer.Code.Game;
 
 namespace NaviServer
 {
@@ -16,7 +15,9 @@ namespace NaviServer
     {
         public static void Main(string[] args)
         {
+            Ticker.Run();
             CreateHostBuilder(args).Build().Run();
+            Ticker.Stop();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
