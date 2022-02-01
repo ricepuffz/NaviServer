@@ -13,6 +13,7 @@ namespace NaviServer.Models
         public uint ShipId { get; set; }
         public uint CoordinatesFromId { get; set; }
         public uint CoordinatesToId { get; set; }
+        public float Progress { get; set; }
 
         public virtual Coordinates CoordinatesFrom { get; set; }
         public virtual Coordinates CoordinatesTo { get; set; }

@@ -118,6 +118,8 @@ namespace NaviServer.Data
 
                 entity.Property(e => e.ShipId).HasColumnName("ship_id");
 
+                entity.Property(e => e.Progress).HasColumnName("progress");
+
                 entity.HasOne(d => d.CoordinatesFrom)
                     .WithMany(p => p.MovementCoordinatesFrom)
                     .HasForeignKey(d => d.CoordinatesFromId)
