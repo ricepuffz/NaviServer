@@ -30,7 +30,10 @@ namespace NaviServer.Code.Game
                 if (moveDistance <= 0)
                     movement.Progress = 1;
                 else
-                    movement.Progress += (shipSpeed * (float) Ticker.SecondsSinceLastTick) / moveDistance;
+                {
+                    float incrementedProgress = movement.Progress + (shipSpeed * (float)Ticker.SecondsSinceLastTick) / moveDistance;
+                    movement.Progress = incrementedProgress >= 1 ? 1 : incrementedProgress;
+                }
 
                 System.Diagnostics.Debug.WriteLine($"New movement progress: {movement.Progress}");
                 
