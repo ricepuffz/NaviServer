@@ -20,8 +20,6 @@ namespace NaviServer.Code.Game
             
             foreach (uint movementID in movementIDs)
             {
-                System.Diagnostics.Debug.WriteLine("Doing the movement thing..");
-
                 Movement movement = db.Movement.Find(new object[] { movementID });
 
                 float moveDistance = Util.MovementDistance(movement);
@@ -34,8 +32,6 @@ namespace NaviServer.Code.Game
                     float incrementedProgress = movement.Progress + (shipSpeed * (float)Ticker.SecondsSinceLastTick) / moveDistance;
                     movement.Progress = incrementedProgress >= 1 ? 1 : incrementedProgress;
                 }
-
-                System.Diagnostics.Debug.WriteLine($"New movement progress: {movement.Progress}");
                 
                 if (movement.Progress >= 1)
                 {
