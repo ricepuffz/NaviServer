@@ -10,26 +10,26 @@ namespace NaviServer.Code.Game
     {
         private static DateTime s_lastTickTime = DateTime.Now;
         private static readonly double s_tickDelayInSeconds = 2;
-        private static Timer timer;
+        private static Timer s_timer;
 
         public static bool Running { get; private set; } = false;
         public static double SecondsSinceLastTick { get { return (DateTime.Now - s_lastTickTime).TotalSeconds; } }
 
         public static void Run()
         {
-            timer = new Timer(s_tickDelayInSeconds * 1000);
-            timer.Elapsed += (source, e) =>
+            s_timer = new Timer(s_tickDelayInSeconds * 1000);
+            s_timer.Elapsed += (source, e) =>
             {
                 Tick();
             };
-            timer.AutoReset = true;
-            timer.Enabled = true;
+            s_timer.AutoReset = true;
+            s_timer.Enabled = true;
         }
 
         public static void Stop()
         {
-            timer.Stop();
-            timer.Dispose();
+            s_timer.Stop();
+            s_timer.Dispose();
         }
 
         private static void Tick()
