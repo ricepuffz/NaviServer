@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.IdentityModel.Tokens.Jwt;
+using System.Numerics;
 using System.Security.Claims;
 using NaviServer.Data;
 using NaviServer.Models;
@@ -38,6 +39,13 @@ namespace NaviServer.Controllers.Api
                 return false;
 
             return ShipLogic.MoveShip(shipMovement);
+        }
+
+        [HttpGet]
+        [Route("GetLocation/{shipID}")]
+        public Vector2? GetLocation(uint shipID)
+        {
+            return ShipLogic.GetLocation(shipID);
         }
     }
 }

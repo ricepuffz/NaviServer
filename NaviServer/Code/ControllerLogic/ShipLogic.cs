@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 using NaviServer.Code.ControllerPOD;
 using NaviServer.Data;
@@ -33,6 +34,29 @@ namespace NaviServer.Code.ControllerLogic
 
             db.SaveChanges();
             return true;
+        }
+
+        public static Vector2? GetLocation(uint shipID)
+        {
+            Vector2? result;
+
+            using var db = new NaviContext();
+            Ship ship = db.Ship.Find(new object[] { shipID });
+            if (ship == null)
+                return null;
+            result = new Vector2(ship.Coordinates.PosX, ship.Coordinates.PosY);
+
+            Movement movement = ship.Movement;
+            if (movement != null)
+            {
+                Vector2 movementFrom = new Vector2(movement.CoordinatesFrom.PosX, movement.CoordinatesFrom.PosY);
+                Vector2 movementTo = new Vector2(movement.CoordinatesTo.PosX, movement.CoordinatesTo.PosY);
+                Vector2 movementVector = (movementTo - movementFrom) * movement.Progress;
+                Vector2 currentLocation = movementFrom + movementVector;
+                result = currentLocation;
+            }
+
+            return result;
         }
     }
 }
