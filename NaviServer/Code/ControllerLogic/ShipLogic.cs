@@ -8,7 +8,7 @@ using NaviServer.Models;
 
 namespace NaviServer.Code.ControllerLogic
 {
-    public class ShipLogic
+    public static class ShipLogic
     {
         public static bool MoveShip(ShipMovement shipMovement)
         {

@@ -13,8 +13,20 @@ namespace NaviServer
 {
     public class Program
     {
+        public static string JWTSecretKey { get; private set; }
+
         public static void Main(string[] args)
         {
+            try
+            {
+                JWTSecretKey = System.IO.File.ReadAllText(Environment.GetEnvironmentVariable("JWT_SECRET_LOC"));
+            }
+            catch (Exception e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                return;
+            }
+
             Ticker.Run();
             CreateHostBuilder(args).Build().Run();
             Ticker.Stop();
