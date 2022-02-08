@@ -21,18 +21,17 @@ namespace NaviServer.Code.ControllerLogic
 
             List<Claim> claims = new List<Claim>()
             {
-                new Claim("sub", credentials.Username),
-                new Claim("jti", Guid.NewGuid().ToString())
+                new Claim(ClaimTypes.NameIdentifier, credentials.Username)
             };
 
             using (var db = new NaviContext())
             {
                 Credentials retrievedCredentials = db.Credentials.Where(e => e.Username == credentials.Username).FirstOrDefault();
                 if (retrievedCredentials != null && retrievedCredentials.Player.IsAdmin == 1)
-                    claims.Add(new Claim("role", "Administrator"));
+                    claims.Add(new Claim(ClaimTypes.Role, "Administrator"));
             }
 
-            claims.Add(new Claim("role", "User"));
+            claims.Add(new Claim(ClaimTypes.Role, "User"));
 
             var token = new JwtSecurityToken(jwtIssuer,
                 jwtIssuer,
